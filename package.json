@@ -1,0 +1,41 @@
+{
+    "name": "parent",
+    "version": "2.2.1",
+    "private": true,
+    "license": "Apache-2.0",
+    "workspaces": [
+      "higraphedit-server",
+      "higraphedit-client",
+      "higraphedit-vscode/webview",
+      "higraphedit-vscode/extension"
+    ],
+    "scripts": {
+      "all": "yarn clean && yarn install && yarn lint",
+      "build-and-debug": "yarn build && yarn server start-debug -p 5007",
+      "build": "yarn compile && yarn bundle",
+      "bundle": "yarn webview bundle && yarn extension bundle",
+      "clean": "lerna run clean",
+      "compile": "tsc -b",
+      "lint": "eslint --ext .ts,.tsx .",
+      "lint:ci": "yarn lint --output-file eslint_report.json --format json",
+      "package": "yarn extension package",
+      "prepare": "yarn build",
+      "extension": "yarn --cwd higraphEdit-vscode/extension",
+      "server": "yarn --cwd higraphEdit-server",
+      "webview": "yarn --cwd higraphEdit-vscode/webview"
+    },
+    "resolutions": {
+      "string-width": "4.2.3"
+    },
+    "devDependencies": {
+      "@eclipse-glsp/config": "2.2.1",
+      "@types/node": "16.x",
+      "typescript": "^5.5.3",
+      "lerna": "^8.1.7"
+    },
+    "engines": {
+      "node": ">=16.11.0",
+      "yarn": ">=1.7.0 <2.x.x"
+    }
+  }
+  

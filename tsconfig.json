@@ -1,0 +1,22 @@
+{
+    "extends": "@eclipse-glsp/ts-config",
+    "include": [],
+    "compilerOptions": {
+      "composite": true
+    },
+    "references": [
+      {
+        "path": "./higraphEdit-client"
+      },
+      {
+        "path": "./higraphEdit-server"
+      },
+      {
+        "path": "./higraphEdit-vscode/extension"
+      },
+      {
+        "path": "./higraphEdit-vscode/webview"
+      }
+    ]
+  }
+  

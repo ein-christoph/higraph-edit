@@ -1,0 +1,178 @@
+{
+  "name": "higraphedit-vscode",
+  "displayName": "HigraphEdit GLSP Diagram Editor",
+  "version": "2.2.1",
+  "private": "true",
+  "description": "Extension for HigraphEdit GLSP diagrams",
+  "categories": [
+    "Programming Languages"
+  ],
+  "homepage": "https://www.eclipse.org/glsp/",
+  "bugs": "https://github.com/eclipse-glsp/glsp/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eclipse-glsp/glsp-examples.git"
+  },
+  "author": {
+    "name": "EclipseGLSP"
+  },
+  "contributors": [
+    {
+      "name": "Eclipse GLSP Project",
+      "email": "glsp-dev@eclipse.org",
+      "url": "https://projects.eclipse.org/projects/ecd.glsp"
+    }
+  ],
+  "publisher": "Eclipse-GLSP",
+  "main": "dist/higraphedit-extension.js",
+  "files": [
+    "lib",
+    "server",
+    "webview"
+  ],
+  "workspaces": {
+    "nohoist": [
+      "**/@vscode/codicons",
+      "**/@vscode/codicons/**"
+    ]
+  },
+  "scripts": {
+    "build": "tsc -b && yarn bundle",
+    "bundle": "webpack",
+    "bundle:prod": "webpack --config ./webpack.prod.js",
+    "clean": "rimraf lib tsconfig.tsbuildinfo dist",
+    "lint": "eslint --ext .ts,.tsx ./src",
+    "package": "vsce package --yarn",
+    "watch": "tsc -w",
+    "watch:bundle": "webpack --watch"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "higraphedit.fit",
+        "title": "Fit to Screen",
+        "category": "HigraphEdit Diagram",
+        "enablement": "activeCustomEditorId == 'higraphedit.glspDiagram'"
+      },
+      {
+        "command": "higraphedit.center",
+        "title": "Center selection",
+        "category": "HigraphEdit Diagram",
+        "enablement": "activeCustomEditorId == 'higraphedit.glspDiagram'"
+      },
+      {
+        "command": "higraphedit.layout",
+        "title": "Layout diagram",
+        "category": "HigraphEdit Diagram",
+        "enablement": "activeCustomEditorId == 'higraphedit.glspDiagram'"
+      },
+      {
+        "command": "higraphedit.exportAsSVG",
+        "title": "Export as SVG",
+        "category": "HigraphEdit Diagram",
+        "enablement": "activeCustomEditorId == 'higraphedit.glspDiagram'"
+      }
+    ],
+    "customEditors": [
+      {
+        "viewType": "higraphedit.glspDiagram",
+        "displayName": "HigraphEdit Diagram Editor",
+        "selector": [
+          {
+            "filenamePattern": "*.higraphedit"
+          }
+        ]
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "alt+f",
+        "mac": "alt+f",
+        "command": "higraphedit.fit",
+        "when": "activeCustomEditorId == 'higraphedit.glspDiagram'"
+      },
+      {
+        "key": "alt+c",
+        "mac": "alt+c",
+        "command": "higraphedit.center",
+        "when": "activeCustomEditorId == 'higraphedit.glspDiagram'"
+      },
+      {
+        "key": "alt+l",
+        "mac": "alt+l",
+        "command": "higraphedit.layout",
+        "when": "activeCustomEditorId == 'higraphedit.glspDiagram'"
+      },
+      {
+        "key": "ctrl+a",
+        "mac": "ctrl+a",
+        "command": "higraphedit.selectAll",
+        "when": "activeCustomEditorId == 'higraphedit.glspDiagram'"
+      },
+      {
+        "key": "alt+e",
+        "mac": "alt+e",
+        "command": "higraphedit.exportAsSVG",
+        "when": "activeCustomEditorId == 'higraphedit.glspDiagram'"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "submenu": "higraphedit.editor.title",
+          "group": "bookmarks"
+        }
+      ],
+      "higraphedit.editor.title": [
+        {
+          "command": "higraphedit.fit",
+          "group": "navigation",
+          "when": "activeCustomEditorId == 'higraphedit.glspDiagram'"
+        },
+        {
+          "command": "higraphedit.center",
+          "group": "navigation",
+          "when": "activeCustomEditorId == 'higraphedit.glspDiagram'"
+        },
+        {
+          "command": "higraphedit.layout",
+          "group": "navigation",
+          "when": "activeCustomEditorId == 'higraphedit.glspDiagram'"
+        },
+        {
+          "command": "higraphedit.exportAsSVG",
+          "when": "activeCustomEditorId == 'higraphedit.glspDiagram'"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "higraphedit.editor.title",
+        "label": "Diagram"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "dependencies": {
+    "@vscode/codicons": "^0.0.25"
+  },
+  "devDependencies": {
+    "@eclipse-glsp/vscode-integration": "2.2.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.54.0",
+    "@vscode/vsce": "^2.24.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "path": "^0.12.7",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^2.6.3",
+    "higraphedit-webview": "2.2.1",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^9.1.1",
+    "webpack-merge": "^5.9.0"
+  },
+  "engines": {
+    "vscode": "^1.54.0"
+  }
+}

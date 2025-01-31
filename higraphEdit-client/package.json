@@ -1,0 +1,38 @@
+{
+  "name": "higraphedit-client",
+  "version": "2.2.1",
+  "private": "true",
+  "description": "GLSP sprotty diagrams for the Higraph DSL and diagrams produces by HihgraphEdit product",
+  "keywords": [
+    "glsp",
+    "minimal",
+    "diagram"
+  ],
+  "contributors": [
+    {
+      "name": "Eclipse GLSP Project",
+      "email": "glsp-dev@eclipse.org",
+      "url": "https://projects.eclipse.org/projects/ecd.glsp"
+    }
+  ],
+  "main": "lib/index",
+  "types": "lib/index",
+  "files": [
+    "lib",
+    "src",
+    "css"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
+    "lint": "eslint --ext .ts,.tsx ./src",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@eclipse-glsp/client": "2.2.1",
+    "balloon-css": "^0.5.0"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.1"
+  }
+}

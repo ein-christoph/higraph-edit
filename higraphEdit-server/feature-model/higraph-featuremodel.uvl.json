@@ -1,0 +1,21 @@
+{
+  "file": "higraph-featuremodel.uvl",
+  "config": {
+    "Higraph": true,
+    "BasicBlob": true,
+    "AtomicBlob": true,
+    "BlobTypes": false,
+    "CartesianProduct": false,
+    "Edge": true,
+    "Directedness": true,
+    "UndirectedEdge": true,
+    "DirectedEdge": false,
+    "Arity": true,
+    "BinaryEdge": true,
+    "HyperEdge": false,
+    "Labeling": true,
+    "LabledEdge": true,
+    "UnlabledEdge": false,
+    "EdgeTypes": false
+  }
+}

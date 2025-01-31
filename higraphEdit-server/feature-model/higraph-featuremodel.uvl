@@ -1,0 +1,27 @@
+features
+	Higraph {abstract}
+		mandatory
+			BasicBlob
+				mandatory
+					AtomicBlob
+				optional
+					BlobTypes {abstract}
+		optional
+			CartesianProduct
+		mandatory
+			Edge {abstract}
+				mandatory
+					Directedness {abstract}
+						or
+							UndirectedEdge
+							DirectedEdge
+					Arity {abstract}
+						or
+							BinaryEdge
+							HyperEdge
+					Labeling {abstract}
+						or
+							LabledEdge
+							UnlabledEdge
+				optional
+					EdgeTypes {abstract}

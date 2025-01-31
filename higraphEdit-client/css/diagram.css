@@ -1,0 +1,57 @@
+/********************************************************************************
+ * Copyright (c) 2020 EclipseSource and others.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License v. 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0.
+ *
+ * This Source Code may also be made available under the following Secondary
+ * Licenses when the conditions for such availability set forth in the Eclipse
+ * Public License v. 2.0 are satisfied: 
+ * -- GNU General Public License, version 2 with the GNU Classpath Exception
+ * which is available at https://www.gnu.org/software/classpath/license.html
+ * -- MIT License which is available at https://opensource.org/license/mit.
+ *
+ * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0 OR MIT
+ ********************************************************************************/
+
+ svg {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #bbb;
+}
+
+.sprotty-node {
+    fill: inherit;
+}
+
+.tasklist-node > .sprotty-node {
+    stroke: #f1bd6c;
+    stroke-width: 2px;
+    fill: none;
+    rx: 12px;
+    ry: 12px;
+}
+
+.tasklist-compartment,
+.tasklist-compartment > .sprotty-node {
+    stroke: #000000;
+    stroke-width: 2px;
+    fill:none;
+    rx: 12px;
+    ry: 12px;
+}
+
+.sprotty-port.mouseover{
+    fill: #57c8fd;
+ }
+
+.sprotty-port.selected{
+    fill: #00aeff;
+    fill: var(--vscode-tab-unfocusedInactiveForeground);
+    outline: 2px solid red!important;
+ }
+
+ .sprotty-issue{
+    stroke: none;
+}

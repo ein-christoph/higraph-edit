@@ -1,0 +1,28 @@
+{
+  "name": "higraphedit-server",
+  "version": "1.0.0",
+  "main": "./lib/app.js",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@eclipse-glsp/config": "^2.2.1",
+    "@eclipse-glsp/server": "^2.2.1",
+    "@types/node": "^22.10.1"
+  },
+  "dependencies": {
+    "higraphEdit-server": "file:",
+    "inversify": "~6.0.2",
+    "reflect-metadata": "^0.2.2",
+    "typescript": "^5.7.2"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rimraf lib dist tsconfig.tsbuildinfo",
+    "start": "node --enable-source-maps lib/app.js",
+    "start-debug": "node --enable-source-maps --inspect lib/app.js",
+    "watch": "tsc -w"
+  },
+  "engines": {
+    "node": ">=16.11.0",
+    "yarn": ">=1.7.0 <2.x.x"
+  }
+}

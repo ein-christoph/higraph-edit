@@ -1,0 +1,48 @@
+{
+  "id": "08c032ae-b86e-43aa-8399-e34554a3b404",
+  "edges": [],
+  "blobs": [
+    {
+      "id": "45ddac11-28ed-4a09-934f-9e89c0afd621",
+      "name": "A",
+      "position": {
+        "x": 307,
+        "y": 151
+      },
+      "subblobIDs": [],
+      "type": "node",
+      "size": {
+        "width": 45,
+        "height": 29
+      }
+    },
+    {
+      "id": "40314bd7-fe6d-46d8-9e42-32b25ced63bb",
+      "name": "B",
+      "position": {
+        "x": 217,
+        "y": 127
+      },
+      "subblobIDs": [],
+      "type": "node",
+      "size": {
+        "width": 141,
+        "height": 75
+      }
+    },
+    {
+      "id": "5ce7be41-6089-4061-bfa4-f08d76649468",
+      "name": "C",
+      "position": {
+        "x": 299,
+        "y": 135
+      },
+      "subblobIDs": [],
+      "type": "node",
+      "size": {
+        "width": 144.6875,
+        "height": 56
+      }
+    }
+  ]
+}
