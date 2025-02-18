@@ -73,11 +73,17 @@ export class GenericChangeBoundsHandler extends JsonOperationHandler {
 
             //add the modified blob to subblob list of blobs now enclosing the modified blob
             if(BlobValidator.aEnclosesB(otherBlob,modifiedBlob) && !otherBlob.subblobIDs.includes(modifiedBlob.id))
-                    otherBlob.subblobIDs.push(modifiedBlob.id) 
+                otherBlob.subblobIDs.push(modifiedBlob.id) 
 
             //remove the modified blob from subblob list of blob not longer enclosing modified blob
-            if(!BlobValidator.aEnclosesB(otherBlob,modifiedBlob) && otherBlob.subblobIDs.includes(modifiedBlob.id))
-                otherBlob.subblobIDs = otherBlob.subblobIDs.filter((id) => id != modifiedBlob.id)
+            if(!BlobValidator.aEnclosesB(otherBlob,modifiedBlob) && otherBlob.subblobIDs.includes(modifiedBlob.id)){
+                // since we are dealing with references obtained by the index we can not directly assign
+                // the filtered array to otherBlob.subblobsIDs because that would break the reference so we use this workaround
+                let indexToRemove = otherBlob.subblobIDs.indexOf(modifiedBlob.id);
+                if(indexToRemove == -1)
+                    throw new GLSPServerError("Model update failed! The changed Blob has to be removed from another Blobs subblob list but was not found in the model.");
+                otherBlob.subblobIDs.splice(indexToRemove, 1);
+            }
                 
             // add new other blob ids to modified blob id if it is newly enclosed
             if(BlobValidator.aEnclosesB(modifiedBlob,otherBlob) && !modifiedBlob.subblobIDs.includes(otherBlob.id))

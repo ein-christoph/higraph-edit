@@ -3,3 +3,4 @@ lib
 dist
 *.log
 tsconfig.tsbuildinfo
+workspace/example.higraphedit
