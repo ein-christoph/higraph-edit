@@ -25,6 +25,14 @@ export class BlobValidator implements HigraphEditValidator<BasicBlob>{
                 //check if blob encloses other blob and if so other blobs id is included in blobs subblobids array
                 if(BlobValidator.aEnclosesB(blob,otherBlob) && !blob.subblobIDs.includes(otherBlob.id))
                     markers.push({ kind: MarkerKind.ERROR, description: 'This Blob should have '+otherBlob.name+' as subblob but its id is not included in the subblobids!', elementId: blob.id, label: 'Subblob' });
+
+                //check if other blob has blobs id as subblob but does not enclit
+                if(otherBlob.subblobIDs.includes(blob.id) && !BlobValidator.aEnclosesB(otherBlob, blob))
+                    markers.push({ kind: MarkerKind.ERROR, description: otherBlob.name+' should contain '+blob.name+' as subblob but does not enclose it!', elementId: otherBlob.id, label: 'Subblob' })
+
+                //check if blob has other blobs id as subblob but does not enclit
+                if(blob.subblobIDs.includes(otherBlob.id) && !BlobValidator.aEnclosesB(blob, otherBlob))
+                    markers.push({ kind: MarkerKind.ERROR, description: blob.name+' should contain '+otherBlob.name+' as subblob but does not enclose it!', elementId: blob.id, label: 'Subblob' })
             }
         
             return markers;
